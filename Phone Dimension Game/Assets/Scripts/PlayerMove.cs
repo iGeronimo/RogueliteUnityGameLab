@@ -56,7 +56,7 @@ public class PlayerMove : MonoBehaviour
     public void Movement(Vector3 direc)
     {
        
-        rb.MovePosition(rb.position + move.normalized * _speed * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + move * _speed * Time.fixedDeltaTime);
         transform.LookAt(move.normalized + transform.position);
     }
 }

@@ -20,6 +20,8 @@ public class bladeAttack : MonoBehaviour
 
     public GameObject[] blades;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
