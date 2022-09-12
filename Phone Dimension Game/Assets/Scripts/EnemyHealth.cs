@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class EnemyHealth : MonoBehaviour, IDamageable
 {
     public int maxHealth = 100;
     private int _health = 0;
     [SerializeField] private Gradient colorgradient;
+
+    public static event Action onEnemyDeath;
 
     public int Health
     {
@@ -21,7 +24,6 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     public void takeDamage(int dmg)
     {
-        Debug.Log("TAKE DAMAGE");
         _health -= dmg;
         changeColor();
         if(_health < 0)
@@ -32,7 +34,9 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     private void die()
     {
+        Debug.Log("death");
         Destroy(gameObject);
+        onEnemyDeath();
     }
 
 
