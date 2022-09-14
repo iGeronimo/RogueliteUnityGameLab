@@ -17,7 +17,7 @@ public class ChangeDimension : MonoBehaviour
     private Color greenDimension = Color.green;
     private Color targetColor;
 
-    private float dimensionAlpha = 0.35f;
+    private float dimensionAlpha = 0.27f;
 
     Vector2 startTouchPosition;
     Vector2 endTouchPosition;

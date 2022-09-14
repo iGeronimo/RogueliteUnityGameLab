@@ -5,6 +5,11 @@ using UnityEngine;
 public class PlayerDimensions : MonoBehaviour
 {
     public Material playerMat;
+
+    public Material redMat;
+    public Material blueMat;
+    public Material greenMat;
+
     public GameObject dimensionControl;
     private ChangeDimension dimensionCheck;
 
@@ -74,6 +79,29 @@ public class PlayerDimensions : MonoBehaviour
         if (targetColor != playerMat.color)
         {
             playerMat.color = Color.Lerp(playerMat.color, targetColor, 0.1f);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Bullet")
+        {
+            Material bulletMat = other.gameObject.GetComponent<Renderer>().material;
+            if(currentState == playerState.redDim && bulletMat.color != redMat.color)
+            {
+                Destroy(other.gameObject);
+            }
+
+            if (currentState == playerState.blueDim && bulletMat.color != blueMat.color)
+            {
+                Destroy(other.gameObject);
+            }
+
+            if (currentState == playerState.greenDim && bulletMat.color != greenMat.color)
+            {
+                Destroy(other.gameObject);
+            }
+                   
         }
     }
 }
