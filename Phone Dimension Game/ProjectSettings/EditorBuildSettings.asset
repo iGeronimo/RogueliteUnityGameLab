@@ -4,5 +4,17 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/RoomTests/enemyRoom.unity
+    guid: 50cb7bb646ace6040a6debf2194df92e
+  - enabled: 1
+    path: Assets/Scenes/RoomTests/EliteEnemyRoom.unity
+    guid: fee39adec9e80ca42a686228cbd9267e
+  - enabled: 1
+    path: Assets/Scenes/RoomTests/Shop.unity
+    guid: 0399d43ad2e9120478b0a6d17ef05728
+  - enabled: 1
+    path: Assets/Scenes/RoomTests/TreasureRoom.unity
+    guid: 2fc41939119c8874b9817936e82316f2
   m_configObjects: {}

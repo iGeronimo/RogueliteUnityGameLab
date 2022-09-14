@@ -10,6 +10,7 @@ public class RoomManager : MonoBehaviour
     public enum RoomType { ENEMY, ELITE, SHOP, TREASURE }
     RoomType roomtype;
 
+
     public static event Action onRoomCleared;
 
     Transform enemyManager;
@@ -65,4 +66,6 @@ public class RoomManager : MonoBehaviour
             onRoomCleared();
         }
     }
+
+    
 }
