@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - DimensionController
+  - ShootingBoundary
+  - DeathWall
+  - Bullet
   layers:
   - Default
   - TransparentFX
