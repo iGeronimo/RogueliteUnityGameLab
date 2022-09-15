@@ -3,13 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class EnemyHealth : MonoBehaviour, IDamageable
+public class EnemyHealth : MonoBehaviour, IDamageable, IAttackable
 {
     public int maxHealth = 100;
     private int _health = 0;
+    private bool _attackable;
     [SerializeField] private Gradient colorgradient;
 
     public static event Action onEnemyDeath;
+
+    public bool Attackable
+    {
+        set { _attackable = value; }
+        get { return _attackable; }
+    }
 
     public int Health
     {
@@ -24,11 +31,14 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     public void takeDamage(int dmg)
     {
-        _health -= dmg;
-        changeColor();
-        if(_health < 0)
+        if (this.Attackable == true)
         {
-            die();
+            _health -= dmg;
+            changeColor();
+            if (_health < 0)
+            {
+                die();
+            }
         }
     }
 

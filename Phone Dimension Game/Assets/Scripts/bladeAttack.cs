@@ -56,6 +56,7 @@ public class bladeAttack : MonoBehaviour
             
 
 
+            //rotation math that doesn't work
 
             //Quaternion turn = Quaternion.LookRotation(-Vector3.right, -Vector3.up);
             //float LookAngle = Vector3.SignedAngle(newBlade.transform.position - transform.position, newBlade.transform.position + Vector3.right - newBlade.transform.position, Vector3.up);
@@ -77,7 +78,7 @@ public class bladeAttack : MonoBehaviour
 
     void moveBlade()
     {
-        Debug.Log("attack!");
+        //Debug.Log("attack!");
         transform.Rotate(Vector3.Lerp(new Vector3(0,0,0), new Vector3(0, -10 * _rotationSpeed, 0), Time.deltaTime));
     }
 

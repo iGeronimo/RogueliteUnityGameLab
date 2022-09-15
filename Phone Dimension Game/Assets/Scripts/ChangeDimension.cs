@@ -14,7 +14,7 @@ public class ChangeDimension : MonoBehaviour
 
     private Button greenButton;
     private Button redButton;
-    
+
     private int lastDimension = 0;
 
     private Image dimensionLayer;
@@ -65,15 +65,15 @@ public class ChangeDimension : MonoBehaviour
     void staySelected()
     {
         //Debug.Log("Last clicked: " + lastClickedDimension);
-        if(lastClickedDimension == 1 && EventSystem.current.currentSelectedGameObject != redDimensionUI)
+        if (lastClickedDimension == 1 && EventSystem.current.currentSelectedGameObject != redDimensionUI)
         {
             redButton.Select();
         }
-        if(lastClickedDimension == 2 && EventSystem.current.currentSelectedGameObject != greenDimensionUI)
+        if (lastClickedDimension == 2 && EventSystem.current.currentSelectedGameObject != greenDimensionUI)
         {
             greenButton.Select();
         }
-        if(lastClickedDimension == 0)
+        if (lastClickedDimension == 0)
         {
             EventSystem.current.SetSelectedGameObject(null);
         }
@@ -81,7 +81,7 @@ public class ChangeDimension : MonoBehaviour
 
     public void toggleRedDimension()
     {
-        if(lastClickedDimension != 1)
+        if (lastClickedDimension != 1)
         {
             lastClickedDimension = 1;
         }
@@ -90,10 +90,10 @@ public class ChangeDimension : MonoBehaviour
             lastClickedDimension = 0;
         }
     }
-    
+
     public void toggleGreenDimension()
     {
-        if(lastClickedDimension != 2)
+        if (lastClickedDimension != 2)
         {
             lastClickedDimension = 2;
         }
@@ -105,7 +105,11 @@ public class ChangeDimension : MonoBehaviour
 
     void DimensionSelection()
     {
-        currentDimension = lastClickedDimension;   
+        if (currentDimension != lastClickedDimension)
+        {
+            currentDimension = lastClickedDimension;
+            Debug.Log("The dimension has changed!");
+        }
     }
 
     void TransitionDimensions()
