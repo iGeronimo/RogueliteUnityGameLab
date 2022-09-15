@@ -8,6 +8,8 @@ TagManager:
   - ShootingBoundary
   - DeathWall
   - Bullet
+  - enemyManager
+  - enemy
   layers:
   - Default
   - TransparentFX
