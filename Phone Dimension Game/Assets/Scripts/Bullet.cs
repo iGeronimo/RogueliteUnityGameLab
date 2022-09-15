@@ -10,9 +10,9 @@ public class Bullet : MonoBehaviour
     private SphereCollider bulletCollider;
 
     private Material bulletMaterial;
-    public Material redBullet;
-    public Material blueBullet;
-    public Material greenBullet;
+    private Color redBullet = Color.red;
+    private Color whiteBullet = Color.white;
+    private Color greenBullet = Color.green;
 
     public GameObject[] angleBoundaries;
     private Transform angleBoundary1;
@@ -90,13 +90,13 @@ public class Bullet : MonoBehaviour
         switch(dimension)
         {
             case 1:
-                bulletMaterial.color = redBullet.color;
+                bulletMaterial.color = redBullet;
                 break;
             case 2:
-                bulletMaterial.color = blueBullet.color;
+                bulletMaterial.color = whiteBullet;
                 break;
             case 3:
-                bulletMaterial.color = greenBullet.color;
+                bulletMaterial.color = greenBullet;
                 break;
             default:
                 break;
@@ -105,7 +105,7 @@ public class Bullet : MonoBehaviour
 
     void hittable()
     {
-        if(bulletMaterial == redBullet)
+        if(bulletMaterial.color == redBullet)
         {
             if(dimensionCheck.currentDimension == 0)
             {
@@ -117,7 +117,7 @@ public class Bullet : MonoBehaviour
             }
         }
 
-        if (bulletMaterial == greenBullet)
+        if (bulletMaterial.color == greenBullet)
         {
             if (dimensionCheck.currentDimension == 1)
             {
@@ -129,7 +129,7 @@ public class Bullet : MonoBehaviour
             }
         }
 
-        if (bulletMaterial == blueBullet)
+        if (bulletMaterial.color == whiteBullet)
         {
             if (dimensionCheck.currentDimension == 2)
             {
