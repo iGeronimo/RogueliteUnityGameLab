@@ -64,7 +64,7 @@ public class ChangeDimension : MonoBehaviour
 
     void staySelected()
     {
-        Debug.Log("Last clicked: " + lastClickedDimension);
+        //Debug.Log("Last clicked: " + lastClickedDimension);
         if(lastClickedDimension == 1 && EventSystem.current.currentSelectedGameObject != redDimensionUI)
         {
             redButton.Select();
