@@ -59,15 +59,17 @@ public class ChangeDimension : MonoBehaviour
         //ContainDimension();
         TransitionDimensions();
         DimensionSelection();
+        staySelected();
     }
 
     void staySelected()
     {
-        if(lastClickedDimension == 1)
+        Debug.Log("Last clicked: " + lastClickedDimension);
+        if(lastClickedDimension == 1 && EventSystem.current.currentSelectedGameObject != redDimensionUI)
         {
             redButton.Select();
         }
-        if(lastClickedDimension == 2)
+        if(lastClickedDimension == 2 && EventSystem.current.currentSelectedGameObject != greenDimensionUI)
         {
             greenButton.Select();
         }
