@@ -16,8 +16,11 @@ public class DeathWall : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
-        Destroy(other.gameObject);
+        if (other.gameObject.tag == "Bullet")
+        {
+            Destroy(other.gameObject);
+        }
     }
 }

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2655015832377424684}
   - component: {fileID: 2655015832377424083}
   - component: {fileID: 2655015832377424680}
+  - component: {fileID: 1347733493}
   m_Layer: 6
   m_Name: enemy
   m_TagString: enemy
@@ -158,6 +159,21 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
+--- !u!114 &1347733493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2655015832377424082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c95b53b7a28d6149998ac8c9121e9b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletManager: {fileID: 0}
+  maxFirerate: 0.5
+  minFirerate: 2
 --- !u!1 &2655015832987140518
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,6 +223,7 @@ GameObject:
   - component: {fileID: 2655015832992689703}
   - component: {fileID: 2655015832992689702}
   - component: {fileID: 2655015832992689701}
+  - component: {fileID: 3143002767525298084}
   m_Layer: 6
   m_Name: enemy (3)
   m_TagString: enemy
@@ -351,6 +368,21 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
+--- !u!114 &3143002767525298084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2655015832992689700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c95b53b7a28d6149998ac8c9121e9b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletManager: {fileID: 0}
+  maxFirerate: 0.5
+  minFirerate: 2
 --- !u!1 &2655015833457325805
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,6 +397,7 @@ GameObject:
   - component: {fileID: 2655015833457325800}
   - component: {fileID: 2655015833457325807}
   - component: {fileID: 2655015833457325806}
+  - component: {fileID: 1440045389869639980}
   m_Layer: 6
   m_Name: enemy (2)
   m_TagString: enemy
@@ -509,6 +542,21 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
+--- !u!114 &1440045389869639980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2655015833457325805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c95b53b7a28d6149998ac8c9121e9b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletManager: {fileID: 0}
+  maxFirerate: 0.5
+  minFirerate: 2
 --- !u!1 &2655015833736842175
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,6 +571,7 @@ GameObject:
   - component: {fileID: 2655015833736842170}
   - component: {fileID: 2655015833736842169}
   - component: {fileID: 2655015833736842168}
+  - component: {fileID: 3991290378024747777}
   m_Layer: 6
   m_Name: enemy (1)
   m_TagString: enemy
@@ -667,3 +716,18 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
+--- !u!114 &3991290378024747777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2655015833736842175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c95b53b7a28d6149998ac8c9121e9b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletManager: {fileID: 0}
+  maxFirerate: 0.5
+  minFirerate: 2

@@ -7,7 +7,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable, IAttackable
 {
     public int maxHealth = 100;
     private int _health = 0;
-    private bool _attackable;
+    private bool _attackable = true;
     [SerializeField] private Gradient colorgradient;
 
     public static event Action onEnemyDeath;

@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RoomTests/TreasureRoom.unity
     guid: 2fc41939119c8874b9817936e82316f2
+  - enabled: 1
+    path: Assets/Scenes/RoomTests/enemyRoomMerge.unity
+    guid: 43f396eb6a60f2a4fbd618fd05157c2d
   m_configObjects: {}

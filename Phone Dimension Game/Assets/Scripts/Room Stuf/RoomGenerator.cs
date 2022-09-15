@@ -29,21 +29,28 @@ public class RoomGenerator : MonoBehaviour
         float roomValue = UnityEngine.Random.value;
         Debug.Log($"Generated number: {roomValue}..");
 
-        switch (roomValue)
+        if (SceneManager.GetActiveScene() != SceneManager.GetSceneByName("enemyRoomMerge"))
         {
-            case < 0.1f: // 10% shop
-                SceneManager.LoadScene("Shop");
-                Debug.Log("generating shop..");
-                break;
-            case < 0.2f: // 10% treasure
-                SceneManager.LoadScene("TreasureRoom");
-                Debug.Log("generating treasure room.."); break;
-            case < 0.4f: // 20% elite enemy
-                SceneManager.LoadScene("EliteEnemyRoom");
-                Debug.Log("generating elite enemy room.."); break;
-            case <= 1.0f: // 60% enemy
-                SceneManager.LoadScene("enemyRoom");
-                Debug.Log("generating enemy room.."); break;
+            switch (roomValue)
+            {
+                case < 0.1f: // 10% shop
+                    SceneManager.LoadScene("Shop");
+                    Debug.Log("generating shop..");
+                    break;
+                case < 0.2f: // 10% treasure
+                    SceneManager.LoadScene("TreasureRoom");
+                    Debug.Log("generating treasure room.."); break;
+                case < 0.4f: // 20% elite enemy
+                    SceneManager.LoadScene("EliteEnemyRoom");
+                    Debug.Log("generating elite enemy room.."); break;
+                case <= 1.0f: // 60% enemy
+                    SceneManager.LoadScene("enemyRoom");
+                    Debug.Log("generating enemy room.."); break;
+            }
+        }
+        else
+        {
+            SceneManager.LoadScene("enemyRoomMerge");
         }
     }
 }

@@ -112,12 +112,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dimensionControl: {fileID: 0}
-  bulletMaterial: {fileID: 2100000, guid: 03bd3f886cbd9634caa8b09c1d27ff14, type: 2}
   redBullet: {fileID: 2100000, guid: e23bb1db99d869f498b44c68881f0634, type: 2}
   blueBullet: {fileID: 2100000, guid: 03bd3f886cbd9634caa8b09c1d27ff14, type: 2}
   greenBullet: {fileID: 2100000, guid: e0d452be05482e846a1df364d0b68770, type: 2}
   angleBoundaries: []
-  bulletSpeed: 0.1
+  bulletSpeed: 5
 --- !u!54 &1183882757351201965
 Rigidbody:
   m_ObjectHideFlags: 0

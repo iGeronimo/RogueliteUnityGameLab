@@ -22,7 +22,15 @@ public class Bullet : MonoBehaviour
     public float bulletSpeed = 5;
 
     private Rigidbody rb;
-    
+
+
+    private void Awake()
+    {
+        forwardsMovement = (GameObject.FindGameObjectWithTag("Player").transform.position - transform.position).normalized;
+        transform.position += forwardsMovement;
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +38,7 @@ public class Bullet : MonoBehaviour
         rb = this.GetComponent<Rigidbody>();
         dimensionControl = GameObject.FindGameObjectWithTag("DimensionController");
         angleBoundaries = GameObject.FindGameObjectsWithTag("ShootingBoundary");
-        findAngleBoundaries();
+        //findAngleBoundaries();
         bulletCollider = this.GetComponent<SphereCollider>();
         dimensionCheck = dimensionControl.GetComponent<ChangeDimension>();
         forwardsMovement = new Vector3(0, 0, bulletSpeed);
@@ -72,7 +80,8 @@ public class Bullet : MonoBehaviour
 
     void setDirection()
     {
-        forwardsMovement = new Vector3(Random.Range(angleBoundary1.transform.position.x, angleBoundary2.transform.position.x), angleBoundary1.transform.position.y, angleBoundary1.transform.position.z)- this.transform.position;
+        forwardsMovement = (GameObject.FindGameObjectWithTag("Player").transform.position - transform.position).normalized;
+        // forwardsMovement = new Vector3(Random.Range(angleBoundary1.transform.position.x, angleBoundary2.transform.position.x), angleBoundary1.transform.position.y, angleBoundary1.transform.position.z)- this.transform.position;
     }
 
     void setBulletDimension()

@@ -10,6 +10,7 @@ TagManager:
   - Bullet
   - enemyManager
   - enemy
+  - deathWallVictim
   layers:
   - Default
   - TransparentFX

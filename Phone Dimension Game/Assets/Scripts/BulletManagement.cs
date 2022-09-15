@@ -20,7 +20,7 @@ public class BulletManagement : MonoBehaviour
 
     public void SpawnBullet(Transform position)
     {
-        Instantiate(bulletPrefab, position);
+        Instantiate(bulletPrefab, position.position, position.rotation, transform);
     }
 
      

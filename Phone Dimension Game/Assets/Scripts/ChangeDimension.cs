@@ -48,7 +48,7 @@ public class ChangeDimension : MonoBehaviour
     {
         redDimension.a = dimensionAlpha;
         greenDimension.a = dimensionAlpha;
-        realDimension.a = dimensionAlpha;
+        realDimension.a = 0;
     }
 
     // Update is called once per frame
