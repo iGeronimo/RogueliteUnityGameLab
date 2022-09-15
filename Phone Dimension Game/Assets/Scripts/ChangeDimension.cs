@@ -2,129 +2,128 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class ChangeDimension : MonoBehaviour
 {
     public GameObject Dimension;
     public int currentDimension = 0;
+
+    public GameObject greenDimensionUI;
+    public GameObject redDimensionUI;
+
+    private Button greenButton;
+    private Button redButton;
     
     private int lastDimension = 0;
 
     private Image dimensionLayer;
 
+    private int lastClickedDimension = 0;
+
     private Color redDimension = Color.red;
-    private Color blueDimension = Color.blue;
     private Color greenDimension = Color.green;
+    private Color realDimension = Color.white;
     private Color targetColor;
 
     private float dimensionAlpha = 0.27f;
 
-    Vector2 startTouchPosition;
-    Vector2 endTouchPosition;
+    //private float minimumSwipeLength;
 
-    Vector2 startMousePosition;
-    Vector2 endMousePosition;
+    //Vector2 startTouchPosition;
+    //Vector2 endTouchPosition;
+
+    //Vector2 startMousePosition;
+    //Vector2 endMousePosition;
 
     private void Awake()
     {
         dimensionLayer = Dimension.GetComponent<Image>();
+        greenButton = greenDimensionUI.GetComponent<Button>();
+        redButton = redDimensionUI.GetComponent<Button>();
         targetColor = dimensionLayer.color;
     }
 
     private void Start()
     {
         redDimension.a = dimensionAlpha;
-        blueDimension.a = dimensionAlpha;
         greenDimension.a = dimensionAlpha;
+        realDimension.a = dimensionAlpha;
     }
 
     // Update is called once per frame
     void Update()
     {
-        CheckMouseSwipe();
-        CheckSwipe();
-        ContainDimension();
+        //CheckMouseSwipe();
+        //CheckSwipe();
+        //ContainDimension();
         TransitionDimensions();
+        DimensionSelection();
     }
 
-    //Swipe functionality
-
-    void CheckMouseSwipe()
+    void staySelected()
     {
-        if (Input.GetMouseButtonDown(0))
+        if(lastClickedDimension == 1)
         {
-            startMousePosition = Input.mousePosition;
+            redButton.Select();
         }
-
-        if (Input.GetMouseButtonUp(0))
+        if(lastClickedDimension == 2)
         {
-            endMousePosition = Input.mousePosition;
+            greenButton.Select();
+        }
+        if(lastClickedDimension == 0)
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+        }
+    }
 
-            if (endMousePosition.x < startMousePosition.x)
-            {
-                currentDimension++;
-            }
-
-            if (startMousePosition.x < endMousePosition.x)
-            {
-                currentDimension--;
-            }
+    public void toggleRedDimension()
+    {
+        if(lastClickedDimension != 1)
+        {
+            lastClickedDimension = 1;
+        }
+        else
+        {
+            lastClickedDimension = 0;
         }
     }
     
-    void CheckSwipe()
+    public void toggleGreenDimension()
     {
-        if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        if(lastClickedDimension != 2)
         {
-            startTouchPosition = Input.GetTouch(0).position;
+            lastClickedDimension = 2;
         }
-
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
+        else
         {
-            endTouchPosition = Input.GetTouch(0).position;
-
-            if(endTouchPosition.x < startTouchPosition.x)
-            {
-                currentDimension++;
-            }
-
-            if(startTouchPosition.x < endTouchPosition.x)
-            {
-                currentDimension--;
-            }
+            lastClickedDimension = 0;
         }
     }
 
-    void ContainDimension()
+    void DimensionSelection()
     {
-        if(currentDimension < 0)
-        {
-            currentDimension = 2;
-        }
-        if(currentDimension > 2)
-        {
-            currentDimension = 0;
-        }
+        currentDimension = lastClickedDimension;   
     }
 
     void TransitionDimensions()
     {
-        if(lastDimension != currentDimension)
+        if (lastDimension != currentDimension)
         {
             lastDimension = currentDimension;
-            if(currentDimension == 0)
+            if (currentDimension == 0)
             {
-                targetColor = redDimension;
+                targetColor = realDimension;
             }
 
             if (currentDimension == 1)
             {
-                targetColor = greenDimension;
+                targetColor = redDimension;
             }
 
             if (currentDimension == 2)
             {
-                targetColor = blueDimension;
+                targetColor = greenDimension;
             }
         }
 
@@ -133,4 +132,93 @@ public class ChangeDimension : MonoBehaviour
             dimensionLayer.color = Color.Lerp(dimensionLayer.color, targetColor, 0.05f);
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //void ContainDimension()
+    //{
+    //    if(currentDimension < 0)
+    //    {
+    //        currentDimension = 2;
+    //    }
+    //    if(currentDimension > 2)
+    //    {
+    //        currentDimension = 0;
+    //    }
+    //}
+
+
+
+    //void CheckMouseSwipe()
+    //{
+    //    if (Input.GetMouseButtonDown(0))
+    //    {
+    //        startMousePosition = Input.mousePosition;
+    //    }
+
+    //    if (Input.GetMouseButtonUp(0))
+    //    {
+    //        endMousePosition = Input.mousePosition;
+
+    //        if (endMousePosition.x - startMousePosition.x > minimumSwipeLength)
+    //        {
+    //            currentDimension++;
+    //        }
+
+    //        if (startMousePosition.x - endMousePosition.x < -minimumSwipeLength)
+    //        {
+    //            currentDimension--;
+    //        }
+    //    }
+    //}
+
+    //void CheckSwipe()
+    //{
+    //    if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+    //    {
+    //        startTouchPosition = Input.GetTouch(0).position;
+    //    }
+
+    //    if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
+    //    {
+    //        endTouchPosition = Input.GetTouch(0).position;
+
+    //        if (endTouchPosition.x < startTouchPosition.x)
+    //        {
+    //            currentDimension++;
+    //        }
+
+    //        if (startTouchPosition.x < endTouchPosition.x)
+    //        {
+    //            currentDimension--;
+    //        }
+    //    }
+    //}
+
 }

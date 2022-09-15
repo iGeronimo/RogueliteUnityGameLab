@@ -861,7 +861,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Dimension: {fileID: 59508398}
   currentDimension: 0
-  minimumSwipeLength: 50
 --- !u!4 &1150781544
 Transform:
   m_ObjectHideFlags: 0
